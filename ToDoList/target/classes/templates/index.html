@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Todo Management System</title>
+
+</head>
+<style>
+ .center{
+       text-align: center;
+       margin-left: auto;
+  	   margin-right: auto;
+       }
+</style>
+
+<body>
+
+	<h1 class="center">Todo List</h1>
+
+	<a th:href = "@{/showNewTodoForm}" > <p style="text-align:center">Add Todo </a>
+
+	<table class="center" border="1" >
+		<thead>
+		<tr>
+			<th>Todo ID</th>
+			<th>Todo Description</th>
+			<th>Todo DeadLine</th>
+			<th> Actions </th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="todo : ${listTodos}">
+			<td th:text="${todo.Todo_ID}"></td>
+			<td th:text="${todo.Todo_Description}"></td>
+			<td th:text="${todo.Todo_Deadline}"></td>
+			<td> <a th:href="@{/showFormForUpdate/{id}(id=${todo.id})}" >Update</a>
+				<a th:href="@{/deleteTodo/{id}(id=${todo.id})}">Delete</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</body>
+</html>

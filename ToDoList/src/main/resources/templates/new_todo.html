@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Todo Management System</title>
+</head>
+<style>
+.center{
+       text-align: center;
+      }
+input {
+      width: 50%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      }
+</style>
+<body>
+		<h1  class="center"> Todo Management System</h1>
+
+		<h2 class="center">Save Todo</h2>
+
+		<form class="center" action="#" th:action="@{/saveTodo}" th:object="${todo}"
+			method="POST">
+			<input type="text" th:field="*{Todo_ID}"
+				placeholder="Todo ID" ><br><br>
+				
+				<input type="text" th:field="*{Todo_Description}"
+				placeholder="Todo Description"><br><br>
+				
+				<input type="text" th:field="*{Todo_Deadline}"
+				placeholder="Todo DeadLine"><br><br>
+				
+				<button type="submit"> Save Todo</button>
+		</form>
+
+		<a class="center" th:href = "@{/}"> <p style="text-align:center">Back to Todo List</a>
+
+</body>
+</html>
